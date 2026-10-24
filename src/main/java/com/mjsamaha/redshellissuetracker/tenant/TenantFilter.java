@@ -18,9 +18,9 @@ public class TenantFilter extends OncePerRequestFilter {
 
     private static final Pattern PUBLIC_PATH = Pattern.compile("^/public/([a-z0-9-]+)(?:/.*)?$");
 
-    private final TenantRepository tenants;
+    private final TenantLookupService tenants;
 
-    public TenantFilter(TenantRepository tenants) {
+    public TenantFilter(TenantLookupService tenants) {
         this.tenants = tenants;
     }
 
