@@ -14,4 +14,11 @@ public abstract class TenantScopedEntity extends BaseEntity {
     @Column(name = "tenant_id", nullable = false, updatable = false)
     private UUID tenantId;
 	
+	protected TenantScopedEntity() {
+    }
+
+    public UUID getTenantId() {
+        return tenantId;
+    }
+	
 }

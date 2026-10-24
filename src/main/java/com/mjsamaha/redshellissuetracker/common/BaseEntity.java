@@ -34,6 +34,25 @@ public abstract class BaseEntity {
 	@Version
 	private long version;
 	
+	protected BaseEntity() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public long getVersion() {
+        return version;
+    }
+	
 	
 
 }

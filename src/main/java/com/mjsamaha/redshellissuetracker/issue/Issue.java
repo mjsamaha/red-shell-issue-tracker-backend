@@ -110,4 +110,152 @@ public class Issue extends TenantScopedEntity {
     private Issue duplicateOf;
 
     private Instant resolvedAt;
+    
+    protected Issue() {
+    }
+
+    public Issue(Application application, long number, String title,
+                 String description, IssueType type) {
+        this.application = application;
+        this.number = number;
+        this.title = title;
+        this.description = description;
+        this.type = type;
+    }
+
+    public Application getApplication() {
+        return application;
+    }
+
+    public long getNumber() {
+        return number;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public IssueType getType() {
+        return type;
+    }
+
+    public void setType(IssueType type) {
+        this.type = type;
+    }
+
+    public Severity getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(Severity severity) {
+        this.severity = severity;
+    }
+
+    public IssueStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(IssueStatus status) {
+        this.status = status;
+    }
+
+    public Visibility getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
+
+    public ModerationState getModerationState() {
+        return moderationState;
+    }
+
+    public void setModerationState(ModerationState moderationState) {
+        this.moderationState = moderationState;
+    }
+
+    public Reporter getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(Reporter reporter) {
+        this.reporter = reporter;
+    }
+
+    public TenantUser getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(TenantUser assignee) {
+        this.assignee = assignee;
+    }
+
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
+    }
+
+    public String getOs() {
+        return os;
+    }
+
+    public void setOs(String os) {
+        this.os = os;
+    }
+
+    public String getBrowser() {
+        return browser;
+    }
+
+    public void setBrowser(String browser) {
+        this.browser = browser;
+    }
+
+    public Map<String, Object> getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(Map<String, Object> environment) {
+        this.environment = environment;
+    }
+
+    public int getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
+
+    public Issue getDuplicateOf() {
+        return duplicateOf;
+    }
+
+    public void setDuplicateOf(Issue duplicateOf) {
+        this.duplicateOf = duplicateOf;
+    }
+
+    public Instant getResolvedAt() {
+        return resolvedAt;
+    }
+
+    public void setResolvedAt(Instant resolvedAt) {
+        this.resolvedAt = resolvedAt;
+    }
 }

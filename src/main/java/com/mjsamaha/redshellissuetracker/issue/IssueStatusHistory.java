@@ -32,4 +32,31 @@ public class IssueStatusHistory extends TenantScopedEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "changed_by_user_id", updatable = false)
     private TenantUser changedBy; // null for system changes (for example auto-close)
+    
+    protected IssueStatusHistory() {
+    }
+
+    public IssueStatusHistory(Issue issue, IssueStatus fromStatus,
+                              IssueStatus toStatus, TenantUser changedBy) {
+        this.issue = issue;
+        this.fromStatus = fromStatus;
+        this.toStatus = toStatus;
+        this.changedBy = changedBy;
+    }
+
+    public Issue getIssue() {
+        return issue;
+    }
+
+    public IssueStatus getFromStatus() {
+        return fromStatus;
+    }
+
+    public IssueStatus getToStatus() {
+        return toStatus;
+    }
+
+    public TenantUser getChangedBy() {
+        return changedBy;
+    }
 }

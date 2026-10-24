@@ -26,4 +26,20 @@ public class Vote extends TenantScopedEntity {
     private String voterKey;
     // Hash of the verified reporter ID, or of a signed cookie / IP + user agent
     // for anonymous voters. Never store a raw IP address.
+    
+    protected Vote() {
+    }
+
+    public Vote(Issue issue, String voterKey) {
+        this.issue = issue;
+        this.voterKey = voterKey;
+    }
+
+    public Issue getIssue() {
+        return issue;
+    }
+
+    public String getVoterKey() {
+        return voterKey;
+    }
 }

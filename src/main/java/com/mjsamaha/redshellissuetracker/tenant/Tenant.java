@@ -64,5 +64,101 @@ public class Tenant extends BaseEntity {
 
 	@Column(nullable = false)
 	private long maxAttachmentBytes = 5_242_880L; // 5 MB
+	
+	protected Tenant() {
+    }
+
+    public Tenant(String slug, String name) {
+        this.slug = slug;
+        this.name = name;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public TenantStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TenantStatus status) {
+        this.status = status;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+    public String getPrimaryColor() {
+        return primaryColor;
+    }
+
+    public void setPrimaryColor(String primaryColor) {
+        this.primaryColor = primaryColor;
+    }
+
+    public Map<String, Object> getThemeJson() {
+        return themeJson;
+    }
+
+    public void setThemeJson(Map<String, Object> themeJson) {
+        this.themeJson = themeJson;
+    }
+
+    public boolean isModerationDefault() {
+        return moderationDefault;
+    }
+
+    public void setModerationDefault(boolean moderationDefault) {
+        this.moderationDefault = moderationDefault;
+    }
+
+    public boolean isRequireReporterEmail() {
+        return requireReporterEmail;
+    }
+
+    public void setRequireReporterEmail(boolean requireReporterEmail) {
+        this.requireReporterEmail = requireReporterEmail;
+    }
+
+    public int getMaxIssuesPerDay() {
+        return maxIssuesPerDay;
+    }
+
+    public void setMaxIssuesPerDay(int maxIssuesPerDay) {
+        this.maxIssuesPerDay = maxIssuesPerDay;
+    }
+
+    public int getMaxApplications() {
+        return maxApplications;
+    }
+
+    public void setMaxApplications(int maxApplications) {
+        this.maxApplications = maxApplications;
+    }
+
+    public long getMaxAttachmentBytes() {
+        return maxAttachmentBytes;
+    }
+
+    public void setMaxAttachmentBytes(long maxAttachmentBytes) {
+        this.maxAttachmentBytes = maxAttachmentBytes;
+    }
 
 }

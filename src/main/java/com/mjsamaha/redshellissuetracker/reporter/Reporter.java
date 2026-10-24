@@ -34,4 +34,51 @@ public class Reporter extends TenantScopedEntity {
     private String verificationTokenHash; // store a hash, never the raw token
 
     private Instant verificationExpiresAt;
+    
+    protected Reporter() {
+    }
+
+    public Reporter(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getVerificationTokenHash() {
+        return verificationTokenHash;
+    }
+
+    public void setVerificationTokenHash(String verificationTokenHash) {
+        this.verificationTokenHash = verificationTokenHash;
+    }
+
+    public Instant getVerificationExpiresAt() {
+        return verificationExpiresAt;
+    }
+
+    public void setVerificationExpiresAt(Instant verificationExpiresAt) {
+        this.verificationExpiresAt = verificationExpiresAt;
+    }
 }

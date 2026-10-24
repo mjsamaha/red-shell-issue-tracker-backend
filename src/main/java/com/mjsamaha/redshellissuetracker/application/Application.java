@@ -58,4 +58,93 @@ public class Application extends TenantScopedEntity {
 
     @Column(nullable = false)
     private long nextIssueNumber = 1L;
+    
+    protected Application() {
+    }
+
+    public Application(String name, String slug, String projectKey) {
+        this.name = name;
+        this.slug = slug;
+        this.projectKey = projectKey;
+    }
+
+    /**
+     * Returns the next issue number and advances the counter.
+     * Call only while holding the PESSIMISTIC_WRITE lock on this row.
+     */
+    public long allocateIssueNumber() {
+        return nextIssueNumber++;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getProjectKey() {
+        return projectKey;
+    }
+
+    public List<String> getAllowedOrigins() {
+        return allowedOrigins;
+    }
+
+    public void setAllowedOrigins(List<String> allowedOrigins) {
+        this.allowedOrigins = allowedOrigins;
+    }
+
+    public boolean isPublicVisible() {
+        return publicVisible;
+    }
+
+    public void setPublicVisible(boolean publicVisible) {
+        this.publicVisible = publicVisible;
+    }
+
+    public boolean isSubmissionsEnabled() {
+        return submissionsEnabled;
+    }
+
+    public void setSubmissionsEnabled(boolean submissionsEnabled) {
+        this.submissionsEnabled = submissionsEnabled;
+    }
+
+    public boolean isRequiresModeration() {
+        return requiresModeration;
+    }
+
+    public void setRequiresModeration(boolean requiresModeration) {
+        this.requiresModeration = requiresModeration;
+    }
+
+    public Instant getArchivedAt() {
+        return archivedAt;
+    }
+
+    public void setArchivedAt(Instant archivedAt) {
+        this.archivedAt = archivedAt;
+    }
+
+    public long getNextIssueNumber() {
+        return nextIssueNumber;
+    }
 }

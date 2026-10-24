@@ -44,4 +44,53 @@ public class Comment extends TenantScopedEntity {
 
     @Column(nullable = false)
     private boolean internal = false; // internal comments never appear in public DTOs
+    
+    protected Comment() {
+    }
+
+    public Comment(Issue issue, AuthorType authorType, String body) {
+        this.issue = issue;
+        this.authorType = authorType;
+        this.body = body;
+    }
+
+    public Issue getIssue() {
+        return issue;
+    }
+
+    public AuthorType getAuthorType() {
+        return authorType;
+    }
+
+    public TenantUser getAuthorUser() {
+        return authorUser;
+    }
+
+    public void setAuthorUser(TenantUser authorUser) {
+        this.authorUser = authorUser;
+    }
+
+    public Reporter getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(Reporter reporter) {
+        this.reporter = reporter;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public boolean isInternal() {
+        return internal;
+    }
+
+    public void setInternal(boolean internal) {
+        this.internal = internal;
+    }
 }
