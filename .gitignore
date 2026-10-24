@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Secrets ###
+red-shell-issue-tracker-credentials.env
+.env
+*.env
+local.properties
