@@ -37,3 +37,6 @@ red-shell-issue-tracker-credentials.env
 .env
 *.env
 local.properties
+
+### Docs ###
+docs/
