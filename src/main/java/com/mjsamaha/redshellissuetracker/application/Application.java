@@ -104,6 +104,18 @@ public class Application extends TenantScopedEntity {
         return projectKey;
     }
 
+    public void rotateProjectKey(String projectKey) { this.projectKey = projectKey; }
+
+    public void updateDetails(String name, String description, List<String> allowedOrigins,
+                              boolean publicVisible, boolean submissionsEnabled, boolean requiresModeration) {
+        this.name = name;
+        this.description = description;
+        this.allowedOrigins = allowedOrigins == null ? new ArrayList<>() : new ArrayList<>(allowedOrigins);
+        this.publicVisible = publicVisible;
+        this.submissionsEnabled = submissionsEnabled;
+        this.requiresModeration = requiresModeration;
+    }
+
     public List<String> getAllowedOrigins() {
         return allowedOrigins;
     }

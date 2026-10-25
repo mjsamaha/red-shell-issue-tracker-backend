@@ -25,6 +25,11 @@ public class GlobalExceptionHandler {
         return problem(HttpStatus.TOO_MANY_REQUESTS, exception);
     }
 
+    @ExceptionHandler(InvalidRequestException.class)
+    ProblemDetail badRequest(InvalidRequestException exception) {
+        return problem(HttpStatus.BAD_REQUEST, exception);
+    }
+
     private ProblemDetail problem(HttpStatus status, RuntimeException exception) {
         ProblemDetail detail = ProblemDetail.forStatusAndDetail(status, exception.getMessage());
         detail.setType(URI.create("about:blank"));

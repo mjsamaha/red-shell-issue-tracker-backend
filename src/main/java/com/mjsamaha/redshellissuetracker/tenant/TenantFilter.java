@@ -27,16 +27,17 @@ public class TenantFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain chain) throws ServletException, IOException {
-        Matcher m = PUBLIC_PATH.matcher(request.getRequestURI());
-        if (m.matches()) {
-            Optional<Tenant> tenant = tenants.findBySlug(m.group(1));
-            if (tenant.isEmpty() || tenant.get().getStatus() != TenantStatus.ACTIVE) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                return;
-            }
-            TenantContext.set(tenant.get().getId());
-        }
+        TenantContext.clear();
         try {
+            Matcher m = PUBLIC_PATH.matcher(request.getRequestURI());
+            if (m.matches()) {
+                Optional<Tenant> tenant = tenants.findBySlug(m.group(1));
+                if (tenant.isEmpty() || tenant.get().getStatus() != TenantStatus.ACTIVE) {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    return;
+                }
+                TenantContext.set(tenant.get().getId());
+            }
             chain.doFilter(request, response);
         } finally {
             TenantContext.clear();

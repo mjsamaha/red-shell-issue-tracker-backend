@@ -2,6 +2,7 @@ package com.mjsamaha.redshellissuetracker.issue;
 
 import java.util.Optional;
 import java.util.UUID;
+import java.time.Instant;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,8 @@ import com.mjsamaha.redshellissuetracker.common.ModerationState;
 import com.mjsamaha.redshellissuetracker.common.Visibility;
 
 public interface IssueRepository extends JpaRepository<Issue, UUID> {
+
+    long countByCreatedAtGreaterThanEqual(Instant start);
 
     Optional<Issue> findByApplicationIdAndNumber(UUID applicationId, long number);
 

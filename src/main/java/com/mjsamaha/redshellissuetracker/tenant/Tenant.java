@@ -157,6 +157,19 @@ public class Tenant extends BaseEntity {
         return maxAttachmentBytes;
     }
 
+    public void updateSettings(String name, String logoUrl, String primaryColor, Map<String, Object> themeJson,
+                               boolean moderationDefault, boolean requireReporterEmail) {
+        this.name = name;
+        this.logoUrl = logoUrl;
+        this.primaryColor = primaryColor;
+        this.themeJson = themeJson;
+        this.moderationDefault = moderationDefault;
+        this.requireReporterEmail = requireReporterEmail;
+    }
+
+    public void suspend() { this.status = TenantStatus.SUSPENDED; }
+    public void reactivate() { this.status = TenantStatus.ACTIVE; }
+
     public void setMaxAttachmentBytes(long maxAttachmentBytes) {
         this.maxAttachmentBytes = maxAttachmentBytes;
     }

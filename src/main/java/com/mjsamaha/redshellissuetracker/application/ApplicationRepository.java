@@ -15,6 +15,8 @@ public interface ApplicationRepository extends JpaRepository<Application, UUID> 
 
     Optional<Application> findBySlug(String slug);
 
+    boolean existsBySlug(String slug);
+
     List<Application> findByPublicVisibleTrueAndArchivedAtIsNull();
 
     long countByArchivedAtIsNull();
